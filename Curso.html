@@ -1,0 +1,313 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jornada LevAção - Emagrecimento Saudável e Definitivo</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        navy: {
+                            800: '#0f172a',
+                            900: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #14532d 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- HEADER / NAVBAR -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-9 h-9 rounded-xl bg-brand-600 flex items-center justify-center text-white font-bold text-xl shadow-md shadow-brand-500/20">
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
+                <span class="font-extrabold text-xl tracking-tight text-slate-900">Jornada<span class="text-brand-600">LevAção</span></span>
+            </div>
+            <a href="#oferta" class="bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm px-5 py-2.5 rounded-full shadow-lg shadow-brand-600/30 transition-all hover:scale-105 active:scale-95">
+                Quero o Meu Guia
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="gradient-bg text-white pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-xs sm:text-sm font-semibold uppercase tracking-wider">
+                        <i class="fa-solid fa-fire text-brand-500"></i> Método Prático e Acessível
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+                        Emagreça de Forma <span class="text-gradient">Saudável, Definitiva</span> e Sem Dietas Malucas
+                    </h1>
+                    
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        O guia prático definitivo para reorganizar sua rotina, queimar gordura de forma natural e recuperar sua autoestima — gastando pouco e no seu próprio ritmo.
+                    </p>
+
+                    <div class="space-y-3 pt-2 text-left max-w-md mx-auto lg:mx-0">
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-500 mt-1"></i>
+                            <span class="text-slate-200 text-sm sm:text-base">Sem cortar o seu arroz e feijão diário</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-500 mt-1"></i>
+                            <span class="text-slate-200 text-sm sm:text-base">Exercícios práticos de 15 min para fazer em casa</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-brand-500 mt-1"></i>
+                            <span class="text-slate-200 text-sm sm:text-base">Rastreador de Hábitos de 21 dias incluso</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+                        <button onclick="openCheckoutModal()" class="w-full sm:w-auto bg-brand-500 hover:bg-brand-600 text-white font-extrabold text-base sm:text-lg px-8 py-4 rounded-xl shadow-xl shadow-brand-500/30 transition-all hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-3">
+                            <span>QUERO COMEÇAR AGORA</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <div class="flex items-center justify-center lg:justify-start gap-6 pt-4 text-xs text-slate-400">
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-brand-400"></i> Compra 100% Segura</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-bolt text-brand-400"></i> Acesso Imediato</span>
+                    </div>
+                </div>
+
+                <!-- Right Mockup Visual -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-sm">
+                        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-brand-500 to-emerald-300 opacity-30 blur-xl"></div>
+                        <div class="relative bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl text-center space-y-4">
+                            <div class="w-full h-64 sm:h-72 bg-gradient-to-br from-brand-900 to-slate-900 rounded-2xl flex flex-col items-center justify-center p-6 border border-brand-500/20 shadow-inner relative overflow-hidden">
+                                <i class="fa-solid fa-leaf text-brand-500 text-6xl mb-4 opacity-80"></i>
+                                <span class="text-xs uppercase tracking-widest text-brand-400 font-bold">E-book Digital</span>
+                                <h3 class="text-2xl font-black text-white mt-1">JORNADA LEVAÇÃO</h3>
+                                <p class="text-xs text-slate-400 mt-2">Guia Prático de Emagrecimento Saudável</p>
+                                <div class="mt-4 px-3 py-1 bg-brand-500 text-slate-950 font-bold text-xs rounded-full">
+                                    + Kit de Hábitos 21 Dias
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center px-2 text-xs text-slate-400 border-t border-slate-800 pt-3">
+                                <span><i class="fa-solid fa-file-pdf text-red-400 mr-1"></i> Formato PDF</span>
+                                <span><i class="fa-solid fa-mobile-screen text-brand-400 mr-1"></i> Ler no Celular/PC</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM / IDENTIFICATION SECTION -->
+    <section class="py-16 sm:py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                    Para quem é a <span class="text-brand-600">Jornada LevAção</span>?
+                </h2>
+                <p class="text-slate-600 text-base sm:text-lg">
+                    Se você se identifica com pelo menos uma das situações abaixo, este guia foi feito especialmente para você:
+                </p>
+            </div>
+
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Card 1 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-brand-500/50 transition-all flex items-start gap-4">
+                    <div class="p-3 bg-red-100 text-red-600 rounded-xl shrink-0 mt-1">
+                        <i class="fa-solid fa-arrows-rotate text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg">Efeito Sanfona Recorrente</h3>
+                        <p class="text-slate-600 text-sm mt-1">Você começa uma dieta radical, emagrece alguns quilos, mas depois ganha tudo de volta por não conseguir manter o ritmo.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-brand-500/50 transition-all flex items-start gap-4">
+                    <div class="p-3 bg-amber-100 text-amber-600 rounded-xl shrink-0 mt-1">
+                        <i class="fa-solid fa-clock text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg">Falta de Tempo para Academia</h3>
+                        <p class="text-slate-600 text-sm mt-1">Sua rotina de trabalho/estudos é corrida e você não tem 2 horas por dia para passar dentro de uma academia cara.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-brand-500/50 transition-all flex items-start gap-4">
+                    <div class="p-3 bg-emerald-100 text-brand-600 rounded-xl shrink-0 mt-1">
+                        <i class="fa-solid fa-wallet text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg">Acha Alimentação Saudável Cara</h3>
+                        <p class="text-slate-600 text-sm mt-1">Acredita que para emagrecer precisa comprar produtos 'fit' caríssimos ou suplementos que não cabem no seu orçamento.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-brand-500/50 transition-all flex items-start gap-4">
+                    <div class="p-3 bg-indigo-100 text-indigo-600 rounded-xl shrink-0 mt-1">
+                        <i class="fa-solid fa-battery-quarter text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-lg">Cansaço e Baixa Disposição</h3>
+                        <p class="text-slate-600 text-sm mt-1">Acorda cansado, sente indisposição ao longo do dia e quer recuperar sua energia vital e autoestima física.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT YOU GET SECTION -->
+    <section class="py-16 sm:py-24 bg-slate-900 text-white relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-brand-400 font-extrabold uppercase text-xs tracking-widest">Conteúdo Completo</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">O que você vai receber no seu Kit:</h2>
+                <p class="text-slate-400 text-base sm:text-lg">Tudo o que você precisa para uma transformação real e organizada.</p>
+            </div>
+
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Module 1 -->
+                <div class="bg-slate-800/80 border border-slate-700/60 rounded-2xl p-6 hover:border-brand-500/50 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-500/10 text-brand-400 rounded-xl flex items-center justify-center font-bold text-2xl mb-4">
+                            1
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">E-book Principal Jornada LevAção</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            A ementa completa explicada em linguagem simples: reeducação alimentar sem radicalismo, regras de déficit calórico e escolhas inteligentes no mercado.
+                        </p>
+                    </div>
+                    <ul class="mt-6 space-y-2 text-xs text-slate-400 border-t border-slate-700/60 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Guia de Compras Econômicas</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Mente & Construção de Hábitos</li>
+                    </ul>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="bg-slate-800/80 border border-brand-500/40 rounded-2xl p-6 shadow-xl relative flex flex-col justify-between">
+                    <div class="absolute -top-3 right-4 bg-brand-500 text-slate-950 font-extrabold text-[10px] uppercase px-3 py-1 rounded-full">
+                        Destaque
+                    </div>
+                    <div>
+                        <div class="w-12 h-12 bg-brand-500 text-slate-950 rounded-xl flex items-center justify-center font-bold text-2xl mb-4">
+                            2
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Diário de Hábitos (21 Dias)</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            PDF interativo e imprimível com rastreador diário de água, treinos e alimentação para manter você motivado e focado nas primeiras 3 semanas.
+                        </p>
+                    </div>
+                    <ul class="mt-6 space-y-2 text-xs text-slate-400 border-t border-slate-700/60 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Check-list diário de metas</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Metodologia antirrecaída</li>
+                    </ul>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="bg-slate-800/80 border border-slate-700/60 rounded-2xl p-6 hover:border-brand-500/50 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-brand-500/10 text-brand-400 rounded-xl flex items-center justify-center font-bold text-2xl mb-4">
+                            3
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Guia de Treinos em Casa</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Circuitos práticos de 15 a 20 minutos que utilizam apenas o peso do próprio corpo. Ideais para fazer no quarto ou na sala de casa.
+                        </p>
+                    </div>
+                    <ul class="mt-6 space-y-2 text-xs text-slate-400 border-t border-slate-700/60 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Nível Iniciante ao Intermediário</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-400"></i> Sem necessidade de aparelhos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING & OFFER SECTION -->
+    <section id="oferta" class="py-16 sm:py-24 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl border-2 border-brand-500 shadow-2xl p-6 sm:p-12 text-center relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-brand-500 text-slate-950 font-black text-xs uppercase px-8 py-2 transform rotate-12 translate-x-6 translate-y-3">
+                    69% OFF
+                </div>
+
+                <span class="text-brand-600 font-extrabold uppercase text-xs tracking-widest">OFERTA DE LANÇAMENTO</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-slate-900 mt-2">Comece Hoje Mesmo</h2>
+                <p class="text-slate-600 mt-2 text-sm sm:text-base">Acesso imediato e vitalício a todo o conteúdo digital.</p>
+
+                <div class="my-8 py-6 bg-brand-50 rounded-2xl border border-brand-100 inline-block w-full max-w-md">
+                    <span class="text-slate-400 line-through text-lg block">De R$ 97,00</span>
+                    <div class="text-slate-900 font-black text-4xl sm:text-6xl mt-1">
+                        R$ 29<span class="text-2xl sm:text-3xl">,90</span>
+                    </div>
+                    <span class="text-brand-700 text-xs font-semibold uppercase block mt-1">Pagamento Único • Sem Mensalidades</span>
+                </div>
+
+                <div class="max-w-md mx-auto space-y-3 text-left mb-8 text-sm text-slate-700">
+                    <div class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-600"></i> <span>E-book Completo Jornada LevAção (PDF)</span></div>
+                    <div class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-600"></i> <span>Diário de Hábitos & Rastreador de 21 Dias</span></div>
+                    <div class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-600"></i> <span>Guia de Treinos de 15 Minutos para Casa</span></div>
+                    <div class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-600"></i> <span>Garantia Incondicional de 7 Dias</span></div>
+                </div>
+
+                <button onclick="openCheckoutModal()" class="w-full max-w-md bg-brand-600 hover:bg-brand-700 text-white font-extrabold text-lg sm:text-xl py-4 rounded-xl shadow-xl shadow-brand-600/30 transition-all hover:scale-105 active:scale-95">
+                    QUERO COMPRAR AGORA
+                </button>
+
+                <div class="mt-6 flex flex-wrap justify-center items-center gap-6 text-slate-400 text-xs">
+                    <span class="flex items-center gap-1"><i class="fa-solid fa-pix text-emerald-600"></i> Aceitamos Pix</span>
+                    <span class="flex items-center gap-1"><i class="fa-solid fa-credit-card"></i> Cartão de Crédito</span>
+                    <span class="flex items-center gap-1"><i class="fa-solid fa-lock text-brand-600"></i> Ambiente Criptografado</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GUARANTEE SECTION -->
+    <section class="py-12 bg-white border-y border-slate-200">
+     
