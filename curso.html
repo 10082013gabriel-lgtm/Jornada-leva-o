@@ -1,16 +1,18 @@
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área do Aluno - Jornada LevAção</title>
+    <title>Área do Aluno - Jornada LevAção (Guia Completo)</title>
     <style>
         :root {
             --primary: #2e7d32;
             --primary-dark: #1b5e20;
             --primary-light: #e8f5e9;
-            --accent: #ff9800;
-            --bg: #f8faf9;
+            --accent: #f57c00;
+            --accent-light: #fff3e0;
+            --bg: #f4f7f5;
             --card-bg: #ffffff;
             --text-main: #1f2937;
             --text-muted: #4b5563;
@@ -24,113 +26,144 @@
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
             background-color: var(--bg);
             color: var(--text-main);
-            line-height: 1.7;
-            padding-bottom: 60px;
+            line-height: 1.8;
+            padding-bottom: 80px;
         }
 
         /* CABEÇALHO */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
             color: white;
             text-align: center;
-            padding: 50px 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+            padding: 60px 20px 40px 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
         }
 
         header p {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             opacity: 0.95;
             font-weight: 300;
-            max-width: 600px;
+            max-width: 750px;
             margin: 0 auto;
         }
 
-        /* NAVEGAÇÃO */
+        /* NAVEGAÇÃO RÁPIDA */
+        .nav-container {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
         nav {
-            max-width: 1000px;
-            margin: -25px auto 35px auto;
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            padding: 0 15px;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 12px 20px;
+            scrollbar-width: thin;
         }
 
         nav a {
-            background: var(--card-bg);
+            white-space: nowrap;
+            background: var(--bg);
             color: var(--primary-dark);
             text-decoration: none;
-            padding: 10px 16px;
-            border-radius: 30px;
-            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
             font-size: 0.85rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: all 0.25s ease;
             border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
         }
 
         nav a:hover {
             background: var(--primary);
             color: white;
-            transform: translateY(-2px);
+            border-color: var(--primary);
         }
 
         /* CONTAINER PRINCIPAL */
         .container {
-            max-width: 1000px;
-            margin: 0 auto;
+            max-width: 1100px;
+            margin: 40px auto 0 auto;
             padding: 0 20px;
         }
 
         /* CARTÕES / MÓDULOS */
         .card {
             background: var(--card-bg);
-            border-radius: 16px;
-            padding: 35px;
-            margin-bottom: 35px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border-radius: 18px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.05);
             border: 1px solid var(--border-color);
         }
 
         .card-header {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
+            gap: 14px;
+            margin-bottom: 25px;
             border-bottom: 2px solid var(--primary-light);
-            padding-bottom: 12px;
+            padding-bottom: 15px;
         }
 
         .badge {
             background: var(--primary-light);
             color: var(--primary-dark);
-            padding: 4px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
             font-size: 0.85rem;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-bonus {
+            background: var(--accent-light);
+            color: var(--accent);
         }
 
         .card h2 {
             color: var(--primary-dark);
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 700;
         }
 
         .card h3 {
             color: var(--primary);
-            margin: 25px 0 12px 0;
-            font-size: 1.25rem;
+            margin: 30px 0 14px 0;
+            font-size: 1.35rem;
+            border-left: 4px solid var(--primary);
+            padding-left: 12px;
+        }
+
+        .card h4 {
+            color: var(--text-main);
+            margin: 20px 0 10px 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: #374151;
+            font-size: 1.02rem;
         }
 
         /* VÍDEO RESPONSIVO */
@@ -139,10 +172,10 @@
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            border-radius: 12px;
+            border-radius: 14px;
             background: #000;
-            margin: 20px 0 25px 0;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            margin: 25px 0;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
         }
 
         .video-wrapper iframe {
@@ -154,46 +187,59 @@
             border: 0;
         }
 
-        /* IMAGENS DOS MÓDULOS */
-        .module-img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin: 20px 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-
-        /* DESTAQUES E BOXES */
+        /* DESTAQUES E CAIXAS INFORMATIVAS */
         .highlight-box {
             background-color: var(--primary-light);
             border-left: 5px solid var(--primary);
             border-radius: 0 12px 12px 0;
-            padding: 20px;
-            margin: 20px 0;
-            font-size: 1rem;
+            padding: 22px;
+            margin: 25px 0;
+            font-size: 1.02rem;
         }
 
-        /* TABELA DE CONTEÚDO */
+        .alert-box {
+            background-color: #fef2f2;
+            border-left: 5px solid #ef4444;
+            border-radius: 0 12px 12px 0;
+            padding: 22px;
+            margin: 25px 0;
+            color: #991b1b;
+        }
+
+        .tip-box {
+            background-color: #eff6ff;
+            border-left: 5px solid #3b82f6;
+            border-radius: 0 12px 12px 0;
+            padding: 22px;
+            margin: 25px 0;
+            color: #1e40af;
+        }
+
+        /* TABELAS */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 25px 0;
+        }
+
         .custom-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
         }
 
         .custom-table th {
             background-color: var(--primary);
             color: white;
-            padding: 12px 16px;
+            padding: 14px 18px;
             text-align: left;
             font-size: 0.95rem;
+            font-weight: 700;
         }
 
         .custom-table td {
-            padding: 12px 16px;
+            padding: 14px 18px;
             border-bottom: 1px solid var(--border-color);
             background-color: #ffffff;
             font-size: 0.95rem;
@@ -207,45 +253,48 @@
         .calc-box {
             background: #f0fdf4;
             border: 1px solid #bbf7d0;
-            padding: 22px;
-            border-radius: 12px;
-            margin: 20px 0;
+            padding: 28px;
+            border-radius: 14px;
+            margin: 25px 0;
         }
 
         .calc-inputs {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             flex-wrap: wrap;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .input-group {
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 6px;
+            flex: 1;
+            min-width: 180px;
         }
 
         .input-group label {
-            font-size: 0.9rem;
-            font-weight: 600;
+            font-size: 0.92rem;
+            font-weight: 700;
             color: var(--primary-dark);
         }
 
-        .calc-box input {
-            padding: 10px 14px;
+        .calc-box input, .calc-box select {
+            padding: 12px 16px;
             border: 1px solid #cbd5e1;
             border-radius: 8px;
             font-size: 1rem;
-            width: 140px;
+            outline: none;
         }
 
         .calc-box button {
             background: var(--primary);
             color: white;
             border: none;
-            padding: 12px 24px;
+            padding: 14px 28px;
             border-radius: 8px;
             font-weight: 700;
+            font-size: 1rem;
             cursor: pointer;
             transition: background 0.2s;
             align-self: flex-end;
@@ -256,12 +305,12 @@
         }
 
         .calc-result {
-            margin-top: 15px;
+            margin-top: 20px;
             font-weight: bold;
             color: var(--primary-dark);
-            font-size: 1.1rem;
-            padding-top: 10px;
-            border-top: 1px dashed #bbf7d0;
+            font-size: 1.15rem;
+            padding-top: 15px;
+            border-top: 2px dashed #bbf7d0;
         }
 
         /* TRACKER DE HÁBITOS */
@@ -269,85 +318,114 @@
             width: 100%;
             background-color: #e5e7eb;
             border-radius: 20px;
-            height: 18px;
-            margin: 15px 0 25px 0;
+            height: 22px;
+            margin: 20px 0 30px 0;
             overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .progress-bar {
             height: 100%;
             width: 0%;
-            background: linear-gradient(90deg, #81c784 0%, #2e7d32 100%);
+            background: linear-gradient(90deg, #66bb6a 0%, #2e7d32 100%);
             transition: width 0.4s ease;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
         }
 
         .checklist-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 14px;
-            margin-bottom: 12px;
             background: #f9fafb;
-            padding: 14px 18px;
-            border-radius: 10px;
+            padding: 16px 20px;
+            border-radius: 12px;
             border: 1px solid var(--border-color);
-            transition: background 0.2s;
+            transition: all 0.2s;
         }
 
         .checklist-item:hover {
             background: #f3f4f6;
+            border-color: #cbd5e1;
         }
 
         .checklist-item input[type="checkbox"] {
             width: 22px;
             height: 22px;
+            margin-top: 2px;
             accent-color: var(--primary);
             cursor: pointer;
         }
 
-        /* CARDS DE RECEITAS */
+        .checklist-item label {
+            cursor: pointer;
+            font-size: 0.98rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* GREDA DE RECEITAS */
         .recipe-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
         }
 
         .recipe-card {
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 20px;
+            border-radius: 14px;
+            padding: 25px;
             background: #ffffff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .recipe-card h4 {
             color: var(--primary-dark);
-            margin-bottom: 10px;
-            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--primary-light);
+            padding-bottom: 8px;
+        }
+
+        .recipe-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-weight: 600;
         }
 
         ul, ol {
-            padding-left: 22px;
-            margin-bottom: 15px;
+            padding-left: 24px;
+            margin-bottom: 20px;
         }
 
         li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            color: #374151;
         }
 
         footer {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 60px;
             color: var(--text-muted);
             font-size: 0.95rem;
+            padding: 20px;
         }
 
-        @media (max-width: 600px) {
-            header h1 { font-size: 1.8rem; }
-            .card { padding: 20px; }
-            .module-img { height: 200px; }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .card { padding: 25px; }
             .calc-inputs { flex-direction: column; }
-            .calc-box input { width: 100%; }
             .calc-box button { width: 100%; }
         }
     </style>
@@ -356,322 +434,505 @@
 
     <header>
         <h1>JORNADA LEVAÇÃO</h1>
-        <p>Sua Área do Aluno Exclusiva • Emagrecimento Consciente e Definitivo</p>
+        <p>Plataforma Exclusiva de Transformação, Reeducação Alimentar e Mudança Definida de Estilo de Vida</p>
     </header>
 
-    <nav>
-        <a href="#modulo1">1. Apresentação</a>
-        <a href="#modulo2">2. A Ciência</a>
-        <a href="#modulo3">3. Prato Perfeito</a>
-        <a href="#modulo4">4. Substituições</a>
-        <a href="#modulo5">5. Receitas</a>
-        <a href="#modulo6">6. Ansiedade</a>
-        <a href="#modulo7">7. Sono & Hormônios</a>
-        <a href="#modulo8">8. Manutenção</a>
-        <a href="#checklist">Habit Tracker</a>
-    </nav>
+    <div class="nav-container">
+        <nav id="topNav">
+            <a href="#modulo1">Mód. 1: Apresentação</a>
+            <a href="#modulo2">Mód. 2: Bioquímica & Água</a>
+            <a href="#modulo3">Mód. 3: Prato Perfeito</a>
+            <a href="#modulo4">Mód. 4: Guia de Substituições</a>
+            <a href="#modulo5">Mód. 5: Livro de Receitas</a>
+            <a href="#modulo6">Mód. 6: Ansiedade & Cortisol</a>
+            <a href="#modulo7">Mód. 7: Sono & Crononutrição</a>
+            <a href="#modulo8">Mód. 8: Rótulos & Compras</a>
+            <a href="#modulo9">Mód. 9: Quebra do Efeito Platô</a>
+            <a href="#modulo10">Mód. 10: Manutenção Vitalícia</a>
+            <a href="#checklist">Tracker de Hábitos</a>
+        </nav>
+    </div>
 
     <div class="container">
 
-        <!-- MÓDULO 1: APRESENTAÇÃO E VÍDEO -->
+        <!-- MÓDULO 1 -->
         <section id="modulo1" class="card">
             <div class="card-header">
                 <span class="badge">Módulo 1</span>
-                <h2>Bem-vindo(a) à Sua Nova Jornada</h2>
+                <h2>Bem-vindo(a) à Sua Nova Jornada: A Filosofia da Transformação</h2>
             </div>
             
-            <p>Assista ao vídeo abaixo do canal que recomendamos para entender como aproveitar ao máximo o seu material e iniciar sua transformação da forma correta:</p>
+            <p>Seja muito bem-vindo(a) à Jornada LevAção. Este não é mais um programa de dietas restritivas ou promessas milagrosas e insustentáveis. O nosso propósito central é proporcionar-lhe as ferramentas científicas, comportamentais e práticas para que assuma o controlo definitivo da sua saúde e do seu corpo.</p>
 
             <div class="video-wrapper">
-                <iframe src="https://www.youtube-nocookie.com/embed/6X8J305miUA?is=5MplcimsgVHGDhDp" title="Vídeo de Apresentação" allowfullscreen></iframe>
+                <iframe src="https://www.youtube-nocookie.com/embed/6X8J305miUA" title="Vídeo de Apresentação" allowfullscreen></iframe>
             </div>
+
+            <h3>As Fases Comportamentais da Mudança</h3>
+            <p>Para alcançar um emagrecimento duradouro, é fundamental compreender em que fase do processo se encontra:</p>
+
+            <ul>
+                <li><strong>Fase 1: Consciência Nutricional (Semanas 1 a 2):</strong> Identificação dos hábitos sabotadores, eliminação de mitos e reeducação do paladar. Não focamos na restrição severa, mas na adição de nutrientes de qualidade.</li>
+                <li><strong>Fase 2: Reestruturação Metabólica (Semanas 3 a 8):</strong> O seu corpo começa a utilizar a gordura acumulada como fonte primária de energia graças à regulação da insulina e do défice calórico estruturado.</li>
+                <li><strong>Fase 3: Consolidação e Autonomia (A partir da Semana 9):</strong> Transição para a manutenção do peso sem dependência de tabelas, desenvolvendo a capacidade de fazer escolhas conscientes em qualquer ambiente social.</li>
+            </ul>
 
             <div class="highlight-box">
-                💡 <strong>Regra de Ouro da Jornada:</strong> O segredo do emagrecimento definitivo não é a perfeição, mas sim a <strong>constância</strong>. Fazer 80% certo todos os dias traz mais resultado do que tentar ser 100% perfeito por 3 dias e desistir no quarto.
+                📌 <strong>Princípio Fundamental da LevAção:</strong> "A constância supera a perfeição". Tentar fazer tudo 100% perfeito durante uma semana e desistir na seguinte gera o ciclo da frustração. Fazer 80% bem feito, de forma contínua durante meses, garante resultados extraordinários para toda a vida.
             </div>
+
+            <h3>Como Estudar e Aplicar Este Curso</h3>
+            <ol>
+                <li><strong>Não pule módulos:</strong> A matéria foi desenhada em progressão pedagógica. Cada conceito prepara a base para o seguinte.</li>
+                <li><strong>Utilize as Ferramentas Práticas:</strong> Faça o cálculo da sua água no Módulo 2 e utilize o Tracker de Hábitos diariamente.</li>
+                <li><strong>Ajuste o seu Ambiente:</strong> Elimine as tentações desnecessárias do seu raio de visão nas primeiras semanas até criar imunidade comportamental.</li>
+            </ol>
         </section>
 
-        <!-- MÓDULO 2: A CIÊNCIA DO EMAGRECIMENTO & CALCULADORA -->
+        <!-- MÓDULO 2 -->
         <section id="modulo2" class="card">
             <div class="card-header">
                 <span class="badge">Módulo 2</span>
-                <h2>A Ciência da Leveza & Os 3 Pilares</h2>
+                <h2>A Ciência da Leveza: Bioquímica da Perda de Gordura & Hidratação</h2>
             </div>
 
-            <img src="https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&w=1000&q=80" alt="Hidratação e Estilo de Vida" class="module-img">
+            <p>Para emagrecer de forma saudável e definitiva, precisa de entender o que acontece dentro do seu organismo. Emagrecer não é passar fome; é ensinar o seu corpo a gastar a energia armazenada em forma de tecido adiposo (gordura).</p>
 
-            <p>Esqueça a ideia de que você precisa passar fome para emagrecer. O nosso corpo responde aos nutrientes e estímulos certos.</p>
+            <h3>O Mecanismo da Lipólise e Défice Calórico</h3>
+            <p>A gordura corporal é armazenada nos adipócitos sob a forma de triglicéridos. Para que essa gordura seja mobilizada e queimada (β-oxidação), duas condições têm de ser cumpridas:</p>
+            <ol>
+                <li><strong>Défice Calórico Moderado:</strong> Consumir ligeiramente menos energia do que aquela que o seu corpo gasta no somatório do Metabolismo Basal + Atividade Física + Termogénese dos Alimentos (TEF).</li>
+                <li><strong>Níveis Controlados de Insulina:</strong> A insulina é o hormónio de armazenamento. Quando mantemos picos constantes de insulina (devido ao consumo frequente de açúcares e farinhas refinadas), a enzima Lipase Sensível a Hormónios (HSL) fica inibida, bloqueando a queima de gordura.</li>
+            </ol>
 
-            <h3>Fome Física vs. Fome Emocional</h3>
-            <p>Aprender a diferenciar os dois tipos de fome é o divisor de águas na sua rotina:</p>
+            <h3>Fome Física vs. Fome Emocional vs. Fome Hedónica</h3>
+            <div class="table-responsive">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Fome Física (Fisiológica)</th>
+                            <th>Fome Emocional (Apetite)</th>
+                            <th>Fome Hedónica (Vontade)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Surgimento</strong></td>
+                            <td>Gradual e progressivo.</td>
+                            <td>Súbito e urgente.</td>
+                            <td>Estimulado por sentidos (cheiro, visão).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sintomas Físicos</strong></td>
+                            <td>Estômago a roncar, leve vazio.</td>
+                            <td>Tensão muscular, ansiedade no peito.</td>
+                            <td>Salivação ao ver o alimento.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Opções Aceites</strong></td>
+                            <td>Qualquer comida de verdade (ovos, salada, carne).</td>
+                            <td>Alimentos específicos (chocolate, pizza, massas).</td>
+                            <td>Aquele doce/salgado específico visualizado.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pós-Refeição</strong></td>
+                            <td>Sensação de saciedade e energia.</td>
+                            <td>Sentimento de culpa, remorso e estufamento.</td>
+                            <td>Fim do prazer e desejo de continuar a comer.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-            <table class="custom-table">
-                <thead>
-                    <tr>
-                        <th>Característica</th>
-                        <th>Fome Física (Verdadeira)</th>
-                        <th>Fome Emocional (Vontade)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Como surge?</strong></td>
-                        <td>Aparece aos poucos, gradativamente.</td>
-                        <td>Surge de repente, como uma urgência.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>O que deseja?</strong></td>
-                        <td>Aceita qualquer comida de verdade.</td>
-                        <td>Deseja um alimento específico (doce/massa).</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Sensação após comer</strong></td>
-                        <td>Satisfação e energia.</td>
-                        <td>Culpa, estufamento e frustração.</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>Calculadora Avançada de Hidratação (Peso + Idade)</h3>
-            <p>Com o passar dos anos, as necessidades de água do nosso organismo mudam. Preencha os campos abaixo para descobrir a sua meta diária ideal:</p>
+            <h3>Calculadora de Hidratação Personalizada por Idade e Nível de Atividade</h3>
+            <p>A água é o solvente de todas as reações bioquímicas, incluindo a lipólise. Sem água suficiente, o fígado fica sobrecarregado ao tentar auxiliar os rins, desacelerando o metabolismo metabólico em até 15%.</p>
             
             <div class="calc-box">
                 <div class="calc-inputs">
                     <div class="input-group">
-                        <label for="weightInput">Seu peso (kg):</label>
+                        <label for="weightInput">Seu peso atual (kg):</label>
                         <input type="number" id="weightInput" placeholder="Ex: 70" min="20" max="250">
                     </div>
                     <div class="input-group">
                         <label for="ageInput">Sua idade (anos):</label>
                         <input type="number" id="ageInput" placeholder="Ex: 35" min="10" max="110">
                     </div>
-                    <button onclick="calculateWater()">Calcular Meta</button>
+                    <div class="input-group">
+                        <label for="activitySelect">Nível de Atividade Diária:</label>
+                        <select id="activitySelect">
+                            <option value="1.0">Sedentário (Trabalho sentado)</option>
+                            <option value="1.15">Moderado (Caminha / Treina 3x/sem)</option>
+                            <option value="1.3">Intenso (Treino diário / Trabalho ativo)</option>
+                        </select>
+                    </div>
+                    <button type="button" id="btnCalculateWater">Calcular Meta</button>
                 </div>
-                <div id="waterResult" class="calc-result">Aguardando dados...</div>
+                <div id="waterResult" class="calc-result"Insira os seus dados e clique em calcular...</div>
+            </div>
+
+            <div class="tip-box">
+                💧 <strong>Dica de Ouro de Hidratação:</strong> Beba 500 ml de água assim que acordar. Durante a noite perdem-se cerca de 400 a 600 ml de água pela respiração e transpiração. Iniciar o dia hidratado ativa imediatamente o trânsito intestinal e reduz a falsa fome matinal.
             </div>
         </section>
 
-        <!-- MÓDULO 3: O MÉTODO DO PRATO PERFEITO -->
+        <!-- MÓDULO 3 -->
         <section id="modulo3" class="card">
             <div class="card-header">
                 <span class="badge">Módulo 3</span>
-                <h2>O Método do Prato Equilibrado</h2>
+                <h2>Engenharia do Prato Perfeito: Proporções, Macros e Fibras</h2>
             </div>
 
-            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1000&q=80" alt="Prato Equilibrado e Saudável" class="module-img">
+            <p>Não precisa de andar com uma balança de precisão no bolso para todas as refeições. O <strong>Método do Prato Proporcional</strong> garante o equilíbrio macro e micronutricional perfeito sem causar stresse mental.</p>
 
-            <p>Não há necessidade de pesar grama por grama. Utilize a regra das proporções visuais no seu almoço e jantar:</p>
-
-            <div style="background: #e8f5e9; padding: 20px; border-radius: 12px; text-align: center; margin: 20px 0;">
-                <h3 style="color: #1b5e20; margin-top: 0;">🥗 50% — Saladas e Vegetais</h3>
-                <p>Alface, rúcula, tomate, brócolis, cenoura, pepino, abobrinha (fibras e saciedade).</p>
-                <hr style="margin: 15px 0; border: none; border-top: 1px dashed #a5d6a7;">
-                <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 10px;">
-                    <div>
-                        <h4 style="color: #1b5e20;">🍗 25% Proteína Magra</h4>
-                        <p><small>Frango, peixe, ovos, carnes magras.</small></p>
+            <div style="background: #e8f5e9; border: 2px dashed #2e7d32; padding: 25px; border-radius: 16px; margin: 25px 0;">
+                <h3 style="color: #1b5e20; margin-top: 0; border: none; padding: 0; text-align: center;">🥗 Arquitetura Visual do Prato de Almoço e Jantar</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px;">
+                    <div style="flex: 1; min-width: 250px; background: white; padding: 18px; border-radius: 12px; border-left: 5px solid #2e7d32;">
+                        <h4 style="color: #2e7d32; margin-top: 0;">🥦 50% — Fibras & Micronutrientes</h4>
+                        <p style="font-size: 0.9rem;"><strong>Vegetais folhosos e legumes:</strong> Alface, rúcula, couve, brócolos, curgete, tomate, pepino, pimento, cenoura ralada.</p>
+                        <p style="font-size: 0.85rem; color: #666;"><em>Função: Retarda o esvaziamento gástrico, reduz o pico de glicose e expande o volume no estômago ativando os mecanorrecetores de saciedade.</em></p>
                     </div>
-                    <div>
-                        <h4 style="color: #1b5e20;">🥔 25% Carboidrato Bom</h4>
-                        <p><small>Arroz integral, batata-doce, mandioca, feijão.</small></p>
+                    <div style="flex: 1; min-width: 250px; background: white; padding: 18px; border-radius: 12px; border-left: 5px solid #0284c7;">
+                        <h4 style="color: #0284c7; margin-top: 0;">🍗 25% — Proteína Limpa</h4>
+                        <p style="font-size: 0.9rem;"><strong>Fontes de alto valor biológico:</strong> Peito de frango, peru, peixes (salmão, atum, pescada), ovos, lombo de porco magro, carne de vaca magra.</p>
+                        <p style="font-size: 0.85rem; color: #666;"><em>Função: Preserva a massa muscular, estimula a libertação de hormónios da saciedade (PYY e GLP-1) e possui alto efeito termogénico.</em></p>
+                    </div>
+                    <div style="flex: 1; min-width: 250px; background: white; padding: 18px; border-radius: 12px; border-left: 5px solid #d97706;">
+                        <h4 style="color: #d97706; margin-top: 0;">🥔 25% — Carboidratos Complexos</h4>
+                        <p style="font-size: 0.9rem;"><strong>Amidos de baixa carga glicémica:</strong> Batata-doce, mandioca, arroz integral, quinoa, lentilhas, grão-de-bico, feijão.</p>
+                        <p style="font-size: 0.85rem; color: #666;"><em>Função: Fornece energia sustentada para o cérebro e para o treino, repondo o glicogénio muscular sem gerar picos abruptos de insulina.</em></p>
                     </div>
                 </div>
             </div>
+
+            <h3>Diferença entre Índice Glicémico (IG) e Carga Glicémica (CG)</h3>
+            <p>Nem todos os carboidratos agem da mesma forma no corpo. Entender a diferença entre IG e CG evita que corte alimentos desnecessariamente:</p>
+            <ul>
+                <li><strong>Índice Glicémico (IG):</strong> Mede a *velocidade* com que um carboidrato se transforma em glicose no sangue. Exemplo: a melancia tem um IG alto.</li>
+                <li><strong>Carga Glicémica (CG):</strong> Considera a velocidade *e também a quantidade real* de carboidrato presente numa porção. A melancia, apesar do IG alto, possui uma Carga Glicémica baixa porque é composta maioritariamente por água!</li>
+            </ul>
         </section>
 
-        <!-- MÓDULO 4: TABELA DE SUBSTITUIÇÕES -->
+        <!-- MÓDULO 4 -->
         <section id="modulo4" class="card">
             <div class="card-header">
                 <span class="badge">Módulo 4</span>
-                <h2>Substituições Inteligentes</h2>
+                <h2>Dicionário Prático de Substituições Inteligentes</h2>
             </div>
 
-            <p>Trocas simples no dia a dia reduzem calorias vazias e aumentam sua saciedade sem mudar radicalmente sua rotina:</p>
+            <p>Substituir alimentos de alta densidade calórica por opções nutritivas de baixa densidade permite-lhe comer em **maior volume** enquanto consome **menos calorias**.</p>
 
-            <table class="custom-table">
-                <thead>
-                    <tr>
-                        <th>Em vez de escolher...</th>
-                        <th>Prefira a opção inteligente...</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Refrigerante tradicional ou suco de caixinha</td>
-                        <td>Água aromatizada com limão e hortelã / Chá gelado natural</td>
-                    </tr>
-                    <tr>
-                        <td>Pão francês com margarina</td>
-                        <td>Pão integral com ovo mexido ou queijo branco</td>
-                    </tr>
-                    <tr>
-                        <td>Biscoito recheado / Salgadinho</td>
-                        <td>Mix de castanhas ou fruta com aveia</td>
-                    </tr>
-                    <tr>
-                        <td>Molho de salada industrializado</td>
-                        <td>Azeite de oliva, limão, ervas finas e uma pitada de sal</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Alimento Tradicional (Alta Densidade)</th>
+                            <th>Substituição Inteligente (Baixa Densidade)</th>
+                            <th>Benefício Direto na Sua Jornada</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Arroz Branco Refinado (100g = ~130 kcal)</td>
+                            <td>Arroz de Couve-Flor ou Arroz Integral com Legumes (100g = ~30 kcal)</td>
+                            <td>Redução de 70% nas calorias com o mesmo volume visual no prato.</td>
+                        </tr>
+                        <tr>
+                            <td>Massa Tradicional de Trigo (100g = ~150 kcal)</td>
+                            <td>Esparguete de Curgete ou Esparguete de Cenoura (100g = ~20 kcal)</td>
+                            <td>Aumento massivo de fibras solúveis e eliminação do estufamento.</td>
+                        </tr>
+                        <tr>
+                            <td>Maionese Industrializada (1 colher = ~100 kcal)</td>
+                            <td>Iogurte Natural Grego Magro com Ervas e Limão (1 colher = ~18 kcal)</td>
+                            <td>Aporte de proteínas, probióticos e drástica redução de gorduras saturadas.</td>
+                        </tr>
+                        <tr>
+                            <td>Pão Branco / Croissant (1 un = ~250 kcal)</td>
+                            <td>Pão de Frigideira Proteico ou Pão Integral com sementes (1 un = ~120 kcal)</td>
+                            <td>Maior tempo de mastigação e libertação lenta de energia.</td>
+                        </tr>
+                        <tr>
+                            <td>Chocolate ao Leite (50g = ~270 kcal)</td>
+                            <td>Chocolate 70%+ Cacau ou Fruta congelada com cacau em pó (50g = ~130 kcal)</td>
+                            <td>Rico em flavonoides antioxidantes e menor gatilho para compulsão.</td>
+                        </tr>
+                        <tr>
+                            <td>Refrigerante Açucarado (350ml = ~150 kcal)</td>
+                            <td>Água Gás com Limão espremido e Hortelã (350ml = 0 kcal)</td>
+                            <td>Corte de até 45g de açúcar refinado por lata.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
-        <!-- MÓDULO 5: RECEITAS RÁPIDAS -->
+        <!-- MÓDULO 5 -->
         <section id="modulo5" class="card">
             <div class="card-header">
                 <span class="badge">Módulo 5</span>
-                <h2>Receitas Express para o Dia a Dia</h2>
+                <h2>Livro de Receitas Express & Guia de Meal Prep (Marmitas)</h2>
             </div>
 
-            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=80" alt="Alimentação Saudável e Colorida" class="module-img">
+            <p>A falta de tempo é a desculpa número um para furar a dieta. Ter refeições pré-preparadas no frigorífico é a sua maior arma estratégica.</p>
 
+            <h3>Como Estruturar o Seu Meal Prep Semanal em 2 Horas</h3>
+            <ol>
+                <li><strong>Escolha 2 Proteínas Base:</strong> Ex: Peito de frango desfiado temperado e Carne picada magra com legumes.</li>
+                <li><strong>Assados de Tabuleiro:</strong>Corte curgete, cenoura, abóbora e brócolos, regue com azeite, sal e ervas e asse tudo no forno de uma só vez.</li>
+                <li><strong>Porções Congeláveis:</strong> Utilize recipientes de vidro sem BPA. Guarde 3 dias no frigorífico e congele as restantes porções para a segunda metade da semana.</li>
+            </ol>
+
+            <h3>Receitas Passo a Passo</h3>
             <div class="recipe-grid">
                 <div class="recipe-card">
-                    <h4>🍳 Omelete de Forno Proteica</h4>
-                    <p><strong>Ingredientes:</strong> 3 ovos, legumes picados (tomate, cenoura, espinafre), 1 colher de aveia e sal a gosto.</p>
-                    <p><strong>Preparo:</strong> Misture tudo, coloque em forminhas e asse por 15 min a 180°C.</p>
+                    <div>
+                        <h4>🍳 Omelete Proteica de Forno</h4>
+                        <div class="recipe-meta">
+                            <span>⏱ 20 minutos</span>
+                            <span>🔥 ~220 kcal</span>
+                            <span>💪 24g Proteína</span>
+                        </div>
+                        <p><strong>Ingredientes:</strong> 3 ovos inteiros, 50g de peito de frango desfiado, 1/2 tomate picado, espinafres, sal, pimenta e oégãos.</p>
+                        <p><strong>Modo de Preparo:</strong> Bata os ovos com um garfo. Misture o frango, os legumes e os temperos. Despeje numa forma antiaderente e leve ao forno pré-aquecido a 180°C por 15 a 20 minutos até dourar.</p>
+                    </div>
                 </div>
 
                 <div class="recipe-card">
-                    <h4>🥑 Crepioca Funcional</h4>
-                    <p><strong>Ingredientes:</strong> 1 ovo, 1 colher de sopa de goma de tapioca, 1 colher de semente de chia.</p>
-                    <p><strong>Preparo:</strong> Bata bem e doure dos dois lados na frigideira antiaderente. Recheie com frango desfiado.</p>
+                    <div>
+                        <h4>🥑 Crepioca Funcional de Frango</h4>
+                        <div class="recipe-meta">
+                            <span>⏱ 10 minutos</span>
+                            <span>🔥 ~280 kcal</span>
+                            <span>💪 22g Proteína</span>
+                        </div>
+                        <p><strong>Ingredientes:</strong> 1 ovo, 1 colher de sopa (15g) de polvilho/tapioca, 1 colher de chá de chia, 60g de frango desfiado para o recheio.</p>
+                        <p><strong>Modo de Preparo:</strong> Misture o ovo, a tapioca e a chia num recipiente. Despeje numa frigideira antiaderente bem quente. Doure os dois lados, adicione o frango e dobre ao meio.</p>
+                    </div>
                 </div>
 
                 <div class="recipe-card">
-                    <h4>🍓 Mousse Saudável de Frutas Vermelhas</h4>
-                    <p><strong>Ingredientes:</strong> 1 pote de iogurte natural desnatado, 1 xícara de frutas vermelhas congeladas, gotas de adoçante natural.</p>
-                    <p><strong>Preparo:</strong> Bata no liquidificador e sirva gelado.</p>
+                    <div>
+                        <h4>🍓 Mousse Proteica de Frutas Vermelhas</h4>
+                        <p class="recipe-meta">
+                            <span>⏱ 5 minutos</span>
+                            <span>🔥 ~140 kcal</span>
+                            <span>💪 15g Proteína</span>
+                        </p>
+                        <p><strong>Ingredientes:</strong> 150g de iogurte grego natural magro, 80g de morangos/framboesas congeladas, 1 scoop (15g) de whey protein ou adoçante stevia.</p>
+                        <p><strong>Modo de Preparo:</strong> Coloque todos os ingredientes num triturador ou liquidificador e bata até obter uma textura cremosa de sorvete. Sirva imediatamente.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- NOVO MÓDULO 6: GESTÃO DA ANSIEDADE E GATILHOS -->
+        <!-- MÓDULO 6 -->
         <section id="modulo6" class="card">
             <div class="card-header">
                 <span class="badge">Módulo 6</span>
-                <h2>Gestão da Ansiedade & Gatilhos Emocionais</h2>
+                <h2>Gestão Avançada da Ansiedade & Cortisol</h2>
             </div>
 
-            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1000&q=80" alt="Mindfulness e Ansiedade" class="module-img">
+            <p>O stresse crónico produz um nível elevado do hormónio <strong>cortisol</strong>. O cortisol elevado promove a acumulação de gordura visceral (na zona do abdómen) e aumenta o desejo incontrolável por alimentos altamente palatáveis (ricos em gordura e açúcar simultaneamente).</p>
 
-            <p>Comer por ansiedade é a principal causa do "efeito sanfona". Para controlar o impulso de comer sem fome, aplique o método dos 15 minutos:</p>
+            <h3>O Protocolo STOP para Episódios de Ansiedade Alimentar</h3>
+            <p>Quando sentir o impulso repentino de atacar o frigorífico sem fome física, execute o método <strong>S.T.O.P.</strong>:</p>
+            <ul>
+                <li><strong>S (Stop / Pare):</strong> Interrompa o movimento físico em direção à comida. Não abra a porta do armário nem do frigorífico.</li>
+                <li><strong>T (Take a breath / Respire):</strong> Faça 4 respirações diafragmáticas profundas (inspire em 4 segundos, segure em 4 segundos, expire em 6 segundos). Isso ativa o sistema nervoso parassimpático e reduz o batimento cardíaco.</li>
+                <li><strong>O (Observe / Observe):</strong> Pergunte a si mesmo: <em>"Qual é a emoção que estou a tentar engolir agora? É cansaço? É frustração? É tédio?"</em></li>
+                <li><strong>P (Proceed / Prosfira com Escolha):</strong> Se decidir comer, faça-o de forma consciente, servindo uma porção pequena num prato e sentado à mesa, em vez de comer diretamente da embalagem.</li>
+            </ul>
 
-            <ol>
-                <li><strong>A Regra da Pausa:</strong> Quando sentir uma vontade incontrolável de comer um doce ou salgado fora de hora, espere 15 minutos e beba 1 copo grande de água.</li>
-                <li><strong>Identifique o Gatilho:</strong> Pergunta interna: <em>"Eu estou com fome ou estou estressado/cansado/entediado?"</em></li>
-                <li><strong>Mude o Foco:</strong> Durante os 15 minutos, ocupe as mãos e a mente com outra atividade (caminhar, arrumar algo, ligar para alguém).</li>
-            </ol>
-
-            <div class="highlight-box">
-                🎉 <strong>Como Lidar com Finais de Semana e Festas:</strong> Não existe alimento proibido. Escolha apenas UMA refeição livre na semana para saborear o que gosta, em vez de transformar o fim de semana inteiro em um evento de exageros.
-        </div>
+            <div class="alert-box">
+                ⚠️ <strong>A Armadilha do Fim de Semana:</strong> O seu corpo não sabe a diferença entre segunda-feira e domingo. Se criar um défice calórico perfeito de segunda a sexta-feira (-2000 kcal acumuladas) e exagerar no sábado e domingo (+2500 kcal acumuladas), o seu resultado líquido semanal será de **ganho de peso**.
+            </div>
         </section>
 
-        <!-- NOVO MÓDULO 7: SONO E HORMÔNIOS DA FOME -->
+        <!-- MÓDULO 7 -->
         <section id="modulo7" class="card">
             <div class="card-header">
                 <span class="badge">Módulo 7</span>
-                <h2>Higiene do Sono & Crononutrição</h2>
+                <h2>Arquitetura do Sono & Crononutrição</h2>
             </div>
 
-            <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=1000&q=80" alt="Dormir Bem e Saúde" class="module-img">
+            <p>O sono não é apenas um período de descanso; é o momento em que o seu organismo realiza a regulação hormonal, consolidação da memória e reparação muscular. Dormir menos de 6 horas por noite desregula dois hormónios chave:</p>
 
-            <p>Quem dorme mal sente muito mais fome ao longo do dia. Isso acontece porque a falta de sono desregula dois hormônios fundamentais:</p>
+            <div class="table-responsive">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Hormónio</th>
+                            <th>Função Primária</th>
+                            <th>Efeito da Privação de Sono</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Grelina</strong></td>
+                            <td>Sinaliza a fome ao cérebro.</td>
+                            <td><strong>Aumenta até 30%:</strong> Acorda com mais fome e desejo descontrolado por hidratos de carbono.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Leptina</strong></td>
+                            <td>Sinaliza a saciedade e o gasto energético.</td>
+                            <td><strong>Diminui até 20%:</strong> O cérebro não percebe que já está satisfeito, fazendo-o comer mais.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-            <ul>
-                <li><strong>Grelina (Aumenta):</strong> Hormônio que estimula a fome e o desejo por açúcares e carboidratos refinados.</li>
-                <li><strong>Leptina (Diminui):</strong> Hormônio responsável pela sensação de saciedade e plenitude.</li>
-            </ul>
-
-            <h3>Rotina para um Sono Reparador:</h3>
+            <h3>Protocolo de Higiene do Sono de 6 Passos</h3>
             <ol>
-                <li>Desligue telas de celular e TV pelo menos 45 minutos antes de deitar.</li>
-                <li>Evite refeições pesadas e gordurosas até 2 horas antes de dormir.</li>
-                <li>Corte o consumo de cafeína (café, chás pré-treino, refrigerantes) após as 16h.</li>
+                <li><strong>Corte da Cafeína:</strong> Evite qualquer fonte de cafeína (café, chás pré-treino, refrigerantes à base de cola) após as 15:00. A meia-vida da cafeína no organismo é de 6 a 8 horas.</li>
+                <li><strong>Bloqueio de Luz Azul:</strong> Desligue telemóveis, tablets e televisões ou ative o filtro de luz quente pelo menos 45 minutos antes de ir para a cama. A luz azul inibe a produção de melatonina.</li>
+                <li><strong>Jantar Leve:</strong> Faça a última refeição pesada pelo menos 2 a 3 horas antes de deitar. Ir para a cama em pleno processo digestivo compromete o sono profundo (estágio N3).</li>
+                <li><strong>Ambiente Escuro e Fresco:</strong> O cérebro precisa de uma queda ligeira na temperatura corporal para induzir o sono profundo. Mantenha o quarto escuro e bem ventilado.</li>
             </ol>
         </section>
 
-        <!-- NOVO MÓDULO 8: MANUTENÇÃO DEFINITIVA -->
+        <!-- MÓDULO 8 -->
         <section id="modulo8" class="card">
             <div class="card-header">
                 <span class="badge">Módulo 8</span>
-                <h2>Manutenção Definitiva: Efeito Sanfona Nunca Mais</h2>
+                <h2>Leitura de Rótulos, Enganos do Marketing & Lista de Compras</h2>
             </div>
 
-            <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1000&q=80" alt="Estilo de Vida Saudável" class="module-img">
+            <p>A indústria alimentar utiliza estratégias de marketing para fazer produtos ultraprocessados parecerem saudáveis. Termos como "Fit", "Natural", "Zero Açúcar" ou "Rico em Fibras" muitas vezes escondem ingredientes nocivos.</p>
 
-            <p>Chegar ao peso desejado é apenas metade da jornada. O objetivo real é transformar seus hábitos em um <strong>estilo de vida sustentável</strong>.</p>
+            <h3>A Regra da Ordem Decrescente dos Ingredientes</h3>
+            <p>A lista de ingredientes na parte traseira da embalagem é organizada por lei por ordem decrescente de quantidade: o **primeiro ingrediente** é o que existe em maior abundância no produto, e o último é o que existe em menor quantidade.</p>
 
-            <h3>Os 3 Pilares da Sustentabilidade Alimentar:</h3>
+            <div class="alert-box">
+                🚨 <strong>Atenção aos Nomes Disfarçados de Açúcar:</strong>
+                Se encontrar na lista ingredientes como: <em>Maltodextrina, Xarope de Milho, Dextrose, Sucrose, Açúcar Invertido, Xarope de Ágave, Néctar de Fruta, Concentrado de Sumos ou Xarope de Frutose</em>, saiba que são **açúcares ocultos** que inflamam o seu organismo.
+            </div>
+
+            <h3>Lista de Compras Recomendada para a Jornada LevAção</h3>
             <ul>
-                <li><strong>Autonomia:</strong> Saiba fazer escolhas inteligentes mesmo quando estiver viajando, em restaurantes ou em festas de família.</li>
-                <li><strong>Maturidade Alimentar:</strong> Um deslize ou uma refeição fora do plano não anula todo o seu esforço. Se errou no almoço, recomece no jantar.</li>
-                <li><strong>Movimento Constante:</strong> Encontre uma atividade física que você realmente goste de praticar (musculação, caminhada, dança, corrida). O importante é não ficar parado.</li>
+                <li><strong>Hortifrúti:</strong> Espinafres, rúcula, alface, brócolos, curgete, cenoura, tomate, limão, morangos, mirtilos, abacate, maçã.</li>
+                <li><strong>Proteínas:</strong> Ovos de galinhas livres, peito de frango/peru, carne magra, peixe fresco ou congelado, iogurte natural magro, queijo cottage.</li>
+                <li><strong>Despensa Seca:</strong> Aveia em flocos, sementes de chia e linhaça, azeite de oliva virgem extra, castanhas/amêndoa, arroz integral, feijão, grão-de-bico, café e chás naturais.</li>
             </ul>
+        </section>
+
+        <!-- MÓDULO 9 -->
+        <section id="modulo9" class="card">
+            <div class="card-header">
+                <span class="badge">Módulo 9</span>
+                <h2>Quebra Fisiológica do Efeito Platô</h2>
+            </div>
+
+            <p>É perfeitamente normal que, após algumas semanas ou meses de perda de peso constante, a balança pare de mover-se. Isto chama-se **Termogénese Adaptativa**: o seu corpo tenta defender-se da perda de energia reduzindo o gasto metabólico em repouso e tornando-o mais eficiente em poupar calorias.</p>
+
+            <h3>Como Quebrar o Platô Sem Passar Fome</h3>
+            <ol>
+                <li><strong>Aumente o NEAT (Gasto Não Proveniente de Exercício):</strong> O NEAT (Non-Exercise Activity Thermogenesis) representa até 15% do seu gasto diário. Suba escadas, caminhe enquanto fala ao telemóvel, estações de trabalho de pé. Aumentar de 4.000 para 8.000 passos por dia pode queimar mais 200 a 300 kcal diárias sem stresse adicional.</li>
+                <li><strong>Recalcule a sua Necessidade Calórica:</strong> À medida que emagrece, o seu novo corpo precisa de menos calorias do que quando pesava mais. Ajuste as suas porções ao seu novo peso atual.</li>
+                <li><strong>Rotatividade de Carboidratos (Carb Cycling):</strong> Alterne dias de menor consumo de carboidrato com dias de consumo moderado. Isso ajuda a reativar os recetores metabólicos e estimula a tiroide (conversão de T4 em T3 ativo).</li>
+                <li><strong>Avalie a Retenção hídrica vs. Gordura Real:</strong> Por vezes o peso na balança estagna devido à retenção hídrica provocada por treino intenso de musculação (inflamação muscular benéfica) ou stresse. Tire fotos e meça a cintura em vez de olhar apenas para a balança!</li>
+            </ol>
+        </section>
+
+        <!-- MÓDULO 10 -->
+        <section id="modulo10" class="card">
+            <div class="card-header">
+                <span class="badge">Módulo 10</span>
+                <h2>Manutenção Vitalícia & Estilo de Vida Sustentável</h2>
+            </div>
+
+            <p>Chegar ao peso ideal é apenas uma etapa intermediária. O verdadeiro sucesso da Jornada LevAção consiste em manter o peso atingido sem esforço e sem viver aprisionado em restrições diárias.</p>
+
+            <h3>A Regra de Ouro da Flexibilidade 80/20</h3>
+            <p>O segredo das pessoas que mantêm o peso magro durante décadas é a flexibilidade mental:</p>
+            <ul>
+                <li><strong>80% do seu Tempo:</strong> Alimentos densos em nutrientes, comida de verdade, água adequada, vegetais e proteínas de qualidade.</li>
+                <li><strong>20% do seu Tempo:</strong> Espaço livre para refeições sociais, festas de família, aquele doce que gosta ou um jantar fora sem culpa nem descompensações no dia seguinte.</li>
+            </ul>
+
+            <h3>Protocolo de Recuperação de Deslizes ("Erro Não Exige Punição")</h3>
+            <p>Se num determinado dia exagerar numa refeição, **NÃO faça o seguinte:**</p>
+            <ul>
+                <li>❌ Não passe o dia seguinte inteiro sem comer (jejum punitivo).</li>
+                <li>❌ Não faça horas extenuantes de cardio para "queimar o que comeu".</li>
+            </ul>
+            <p><strong>A atitude correta:</strong> Regresse **imediatamente** ao seu plano habitual na refeição seguinte. Beba a sua meta de água e siga a sua rotina normal como se nada tivesse acontecido. Um deslize numa refeição não estraga meses de consistência!</p>
         </section>
 
         <!-- BÔNUS: HABIT TRACKER INTERATIVO -->
         <section id="checklist" class="card">
             <div class="card-header">
-                <span class="badge" style="background: #fff3e0; color: #e65100;">Bônus Exclusivo</span>
-                <h2>Tracker Diário de Hábitos</h2>
+                <span class="badge badge-bonus">Ferramenta Prática</span>
+                <h2>Tracker Diário de Hábitos & Progresso</h2>
             </div>
 
-            <p>Acompanhe o seu progresso em tempo real. Marque os hábitos concluídos hoje:</p>
+            <p>O sucesso é a soma de pequenos hábitos diários repetidos com constância. Marque os hábitos que concluiu no dia de hoje:</p>
 
             <div class="progress-bar-container">
                 <div id="progressBar" class="progress-bar"></div>
             </div>
-            <p id="progressText" style="text-align: center; font-weight: bold; color: var(--primary-dark); margin-bottom: 20px;">0% Concluído</p>
+            <p id="progressText" style="text-align: center; font-weight: bold; color: var(--primary-dark); margin-bottom: 25px; font-size: 1.1rem;">0% Concluído</p>
 
-            <div class="checklist-item">
-                <input type="checkbox" id="c1" class="task-check" onchange="updateProgress()">
-                <label for="c1">Bebi a minha meta diária de água calculada</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="c2" class="task-check" onchange="updateProgress()">
-                <label for="c2">Montei meu prato principal com 50% de salada/vegetais</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="c3" class="task-check" onchange="updateProgress()">
-                <label for="c3">Consumi fonte de proteína magra nas refeições</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="c4" class="task-check" onchange="updateProgress()">
-                <label for="c4">Pratiquei pelo menos 20 a 30 minutos de atividade física</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="c5" class="task-check" onchange="updateProgress()">
-                <label for="c5">Evitei beliscar alimentos ultraprocessados fora de hora</label>
-            </div>
-            <div class="checklist-item">
-                <input type="checkbox" id="c6" class="task-check" onchange="updateProgress()">
-                <label for="c6">Durmi entre 7 a 8 horas de sono reparador</label>
+            <div class="checklist-grid">
+                <div class="checklist-item">
+                    <input type="checkbox" id="c1" class="task-check">
+                    <label for="c1">Bebi a minha meta diária de água calculada</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="c2" class="task-check">
+                    <label for="c2">Montei meu prato principal com 50% de salada/vegetais</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="c3" class="task-check">
+                    <label for="c3">Consumi fonte de proteína limpa nas principais refeições</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="c4" class="task-check">
+                    <label for="c4">Pratiquei pelo menos 20-30 min de atividade física / caminhada</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="c5" class="task-check">
+                    <label for="c5">Apliquei o método STOP / Evitei beliscar sem fome física</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="c6" class="task-check">
+                    <label for="c6">Realizei a higiene do sono (desliguei telas antes de deitar)</label>
+                </div>
             </div>
         </section>
 
         <footer>
-            <p>Jornada LevAção &copy; Todos os direitos reservados.</p>
+            <p>Jornada LevAção &copy; Todos os direitos reservados. Transformando hábitos, construindo saúde.</p>
         </footer>
 
     </div>
 
-    <!-- SCRIPT DE FUNCIONALIDADES INTERATIVAS -->
+    <!-- SCRIPT CORRIGIDO SEM NENHUM ERRO DE LINTER OU TYPESCRIPT -->
     <script>
-        // Calculadora de Água Ajustada por Peso e Idade
-        function calculateWater() {
-            const weight = parseFloat(document.getElementById('weightInput').value);
-            const age = parseInt(document.getElementById('ageInput').value);
+        /**
+         * @param {Event} [e]
+         */
+        function calculateWater(e) {
+            if (e) e.preventDefault();
+
+            const weightInput = /** @type {HTMLInputElement} */ (document.getElementById('weightInput'));
+            const ageInput = /** @type {HTMLInputElement} */ (document.getElementById('ageInput'));
+            const activitySelect = /** @type {HTMLSelectElement} */ (document.getElementById('activitySelect'));
             const resultDiv = document.getElementById('waterResult');
 
+            if (!weightInput || !ageInput || !activitySelect || !resultDiv) return;
+
+            const weight = parseFloat(weightInput.value);
+            const age = parseInt(ageInput.value, 10);
+            const activityFactor = parseFloat(activitySelect.value);
+
             if (isNaN(weight) || weight <= 0 || isNaN(age) || age <= 0) {
-                resultDiv.innerText = "Por favor, preencha o peso e a idade corretamente.";
+                resultDiv.innerText = "Por favor, preencha o peso e a idade corretamente com valores válidos.";
                 resultDiv.style.color = "#dc2626";
                 return;
             }
 
-            // Cálculo personalizado por faixa etária (ml por kg)
             let mlPerKg = 35;
             if (age < 18) {
                 mlPerKg = 40;
@@ -680,37 +941,55 @@
             } else if (age > 55 && age <= 65) {
                 mlPerKg = 30;
             } else {
-                mlPerKg = 25; // Idosos exigem cuidado adicional conforme orientação médica
+                mlPerKg = 25;
             }
 
-            const totalMl = Math.round(weight * mlPerKg);
+            const totalMl = Math.round(weight * mlPerKg * activityFactor);
             const liters = (totalMl / 1000).toFixed(2);
 
-            resultDiv.innerHTML = `Sua meta diária personalizada é de <strong>${liters} Litros (${totalMl} ml)</strong>.<br><small>(Fator aplicado para ${age} anos: ${mlPerKg} ml/kg)</small>`;
+            resultDiv.innerHTML = `Sua meta diária recomendada de água é de <strong>${liters} Litros (${totalMl} ml)</strong>.<br><small style="color: #4b5563;">(Fator aplicado: ${mlPerKg} ml/kg ajustado ao seu nível de atividade física)</small>`;
             resultDiv.style.color = "#1b5e20";
         }
 
-        // Progresso do Habit Tracker
         function updateProgress() {
             const checkboxes = document.querySelectorAll('.task-check');
-            let checkedCount = 0;
-
-            checkboxes.forEach(cb => {
-                if (cb.checked) checkedCount++;
-            });
-
-            const percentage = Math.round((checkedCount / checkboxes.length) * 100);
             const progressBar = document.getElementById('progressBar');
             const progressText = document.getElementById('progressText');
 
+            if (!checkboxes.length || !progressBar || !progressText) return;
+
+            let checkedCount = 0;
+
+            checkboxes.forEach(function(cb) {
+                const element = /** @type {HTMLInputElement} */ (cb);
+                if (element.checked) {
+                    checkedCount++;
+                }
+            });
+
+            const percentage = Math.round((checkedCount / checkboxes.length) * 100);
             progressBar.style.width = percentage + '%';
             progressText.innerText = percentage + '% Concluído';
 
             if (percentage === 100) {
-                progressText.innerText = "🎉 Parabéns! Você concluiu todos os hábitos de hoje!";
+                progressText.innerText = "🎉 Parabéns! Concluiu todos os hábitos de hoje com excelência!";
             }
         }
+
+        // Event Listeners seguros após o carregamento do DOM
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnWater = document.getElementById('btnCalculateWater');
+            if (btnWater) {
+                btnWater.addEventListener('click', calculateWater);
+            }
+
+            const checkboxes = document.querySelectorAll('.task-check');
+            checkboxes.forEach(function(cb) {
+                cb.addEventListener('change', updateProgress);
+            });
+        });
     </script>
 </body>
 </html>
 
+    
